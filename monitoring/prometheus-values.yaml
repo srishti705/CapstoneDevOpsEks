@@ -1,0 +1,19 @@
+# helm install monitoring prometheus-community/kube-prometheus-stack \
+#   -n monitoring --create-namespace -f monitoring/prometheus-values.yaml
+grafana:
+  persistence:
+    enabled: false        # 💰 no extra EBS volume for a learning project
+  adminPassword: "changeme-please"
+  service:
+    type: ClusterIP        # expose via port-forward or the shared ALB Ingress, not its own LB
+
+prometheus:
+  prometheusSpec:
+    retention: 3d          # 💰 short retention keeps storage tiny
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 250m
+        memory: 512Mi

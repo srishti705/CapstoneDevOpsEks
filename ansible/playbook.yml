@@ -1,0 +1,17 @@
+---
+- name: Configure Jenkins server
+  hosts: jenkins
+  become: true
+  roles:
+    - jenkins
+    - docker
+    - kubectl
+    - awscli
+
+- name: Configure utility / worker boxes
+  hosts: utility
+  become: true
+  roles:
+    - docker
+    - kubectl
+    - awscli

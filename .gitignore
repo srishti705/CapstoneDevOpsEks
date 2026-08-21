@@ -1,0 +1,69 @@
+### Terraform ###
+# Local .terraform directories (provider binaries, modules cache)
+**/.terraform/*
+
+# .tfstate files — NEVER commit these. They can contain resource IDs,
+# IPs, and in some cases plaintext secrets pulled from data sources.
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude override files, generally used to override resources locally
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files that may contain tokens
+.terraformrc
+terraform.rc
+
+# Ignore variable files that likely contain sensitive data
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+
+# Ignore lock files pinning provider versions (optional — many teams DO
+# commit this one for reproducibility; uncomment the next line to ignore it)
+# .terraform.lock.hcl
+
+# Ignore transient plan files
+*.tfplan
+tfplan
+
+### Node.js (app/) ###
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm
+.npm-cache/
+
+### Ansible ###
+*.retry
+*.vault_pass
+
+### AWS / Secrets ###
+.env
+.env.*
+*.pem
+*.key
+aws-exports.js
+credentials
+.aws/
+
+### Jenkins ###
+jenkins_home/
+
+### OS / Editor ###
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+### Logs ###
+*.log

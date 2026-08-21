@@ -1,0 +1,34 @@
+- name: Add Jenkins GPG key
+  apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    state: present
+
+- name: Add Jenkins repository
+  apt_repository:
+    repo: "deb https://pkg.jenkins.io/debian-stable binary/"
+    state: present
+
+- name: Install OpenJDK 17 (required by modern Jenkins)
+  apt:
+    name: openjdk-17-jre
+    state: present
+    update_cache: true
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    state: present
+    update_cache: true
+
+- name: Ensure Jenkins is running
+  systemd:
+    name: jenkins
+    state: started
+    enabled: true
+
+- name: Open firewall for Jenkins UI (8080)
+  ufw:
+    rule: allow
+    port: '8080'
+    proto: tcp
+  ignore_errors: true
