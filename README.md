@@ -439,3 +439,4 @@ render automatically in the sections above:
 | `docs/screenshots/prometheus-targets.png` | Prometheus Status → Targets, showing UP targets | ❌ still needed — capture from Prometheus's own UI (Step 9), not Grafana's Prometheus dashboard |
 | `docs/screenshots/jenkins-pipeline-success.png` | A green, "Finished: SUCCESS" Jenkins build | ✅ (job overview page; a build-detail page with stage view would be even better) |
 | `docs/screenshots/app-response.png` | Browser or `curl` output of `/api/tasks` via the ALB URL | ✅ |
+hello
